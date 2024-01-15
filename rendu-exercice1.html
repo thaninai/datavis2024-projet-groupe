@@ -8,22 +8,22 @@
 <body>
     <h1>Rendu exercice no. 01</h1>
     <h2> Ligne de temps faite avec Wikidata</h2>
-    <p>Cette <em>timeline</em> montre des écrivains dont la langue maternelle est le français</p>
+    <p>Cette <em>timeline</em> montre des chanteurs français</p>
     <p>La requete est : </p>
     <p>
         <code>
             #defaultView:Timeline
-            SELECT ?painter ?painterLabel ?date_of_birth ?place_of_birth ?place_of_birthLabel ?image ?coordinate_location WHERE {
-                SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
-                ?painter wdt:P106 wd:Q36180;
-                    wdt:P103 wd:Q150.
-                OPTIONAL { ?painter wdt:P569 ?date_of_birth. }
-                OPTIONAL { ?painter wdt:P19 ?place_of_birth. }
-                ?painter wdt:P18 ?image.
+            SELECT ?singer ?singerLabel ?sex_or_gender ?sex_or_genderLabel ?date_of_birth ?languages_spoken__written_or_signed ?languages_spoken__written_or_signedLabel WHERE {
+              SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
+              ?singer wdt:P106 wd:Q177220.
+              ?singer wdt:P27 wd:Q142.
+              OPTIONAL { ?singer wdt:P21 ?sex_or_gender. }
+              OPTIONAL { ?singer wdt:P569 ?date_of_birth. }
+              OPTIONAL { ?singer wdt:P1412 ?languages_spoken__written_or_signed. }
             }
             LIMIT 100
         </code>
     </p>
-    <iframe style="width: 80vw; height: 50vh; border: none;" src="https://query.wikidata.org/embed.html#%23defaultView%3ATimeline%0ASELECT%20%3Fcountry%20%3FcountryLabel%20%3Fcity%20%3FcityLabel%20%3Farea%20%3Fpopulation%20%3Fcoordinate_location%20%3Fofficial_language%20%3Fofficial_languageLabel%20WHERE%20%7B%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%2Cen%22.%20%7D%0A%20%20%3Fcity%20wdt%3AP31%20wd%3AQ515.%0A%20%20%3Fcity%20wdt%3AP17%20%3Fcountry.%0A%20%20%3Fcity%20wdt%3AP2046%20%3Farea.%0A%20%20%3Fcity%20wdt%3AP1082%20%3Fpopulation.%0A%20%20%3Fcity%20wdt%3AP625%20%3Fcoordinate_location.%0A%20%20%3Fcity%20wdt%3AP37%20%3Fofficial_language.%0A%7D%0ALIMIT%20100" referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-popups"></iframe>
+    <iframe style="width: 80vw; height: 50vh; border: none;" src="https://query.wikidata.org/embed.html#%23defaultView%3ATimeline%0ASELECT%20%3Fsinger%20%3FsingerLabel%20%3Fsex_or_gender%20%3Fsex_or_genderLabel%20%3Fdate_of_birth%20%3Flanguages_spoken__written_or_signed%20%3Flanguages_spoken__written_or_signedLabel%20%3Fimage%20%3Fplace_of_birth%20%3Fplace_of_birthLabel%20WHERE%20%7B%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%2Cen%22.%20%7D%0A%20%20%3Fsinger%20wdt%3AP106%20wd%3AQ177220%3B%0A%20%20%20%20wdt%3AP27%20wd%3AQ142.%0A%20%20OPTIONAL%20%7B%20%3Fsinger%20wdt%3AP21%20%3Fsex_or_gender.%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fsinger%20wdt%3AP569%20%3Fdate_of_birth.%20%7D%0A%20%20%3Fsinger%20wdt%3AP18%20%3Fimage.%0A%20%20OPTIONAL%20%7B%20%3Fsinger%20wdt%3AP19%20%3Fplace_of_birth.%20%7D%0A%7D%0ALIMIT%20100" referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-popups"></iframe>
 </body>
 </html>
