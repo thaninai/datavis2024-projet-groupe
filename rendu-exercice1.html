@@ -1,1 +1,29 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercice 01 - wikidata et rawgraphs </title>
+</head>
+<body>
+    <h1>Rendu exercice no. 01</h1>
+    <h2> Ligne de temps faite avec Wikidata</h2>
+    <p>Cette <em>timeline</em> montre des écrivains dont la langue maternelle est le français</p>
+    <p>La requete est : </p>
+    <p>
+        <code>
+            #defaultView:Timeline
+            SELECT ?painter ?painterLabel ?date_of_birth ?place_of_birth ?place_of_birthLabel ?image ?coordinate_location WHERE {
+                SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
+                ?painter wdt:P106 wd:Q36180;
+                    wdt:P103 wd:Q150.
+                OPTIONAL { ?painter wdt:P569 ?date_of_birth. }
+                OPTIONAL { ?painter wdt:P19 ?place_of_birth. }
+                ?painter wdt:P18 ?image.
+            }
+            LIMIT 100
+        </code>
+    </p>
+    <iframe style="width: 80vw; height: 50vh; border: none;" src="https://query.wikidata.org/embed.html#%23defaultView%3ATimeline%0ASELECT%20%3Fcountry%20%3FcountryLabel%20%3Fcity%20%3FcityLabel%20%3Farea%20%3Fpopulation%20%3Fcoordinate_location%20%3Fofficial_language%20%3Fofficial_languageLabel%20WHERE%20%7B%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%2Cen%22.%20%7D%0A%20%20%3Fcity%20wdt%3AP31%20wd%3AQ515.%0A%20%20%3Fcity%20wdt%3AP17%20%3Fcountry.%0A%20%20%3Fcity%20wdt%3AP2046%20%3Farea.%0A%20%20%3Fcity%20wdt%3AP1082%20%3Fpopulation.%0A%20%20%3Fcity%20wdt%3AP625%20%3Fcoordinate_location.%0A%20%20%3Fcity%20wdt%3AP37%20%3Fofficial_language.%0A%7D%0ALIMIT%20100" referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-popups"></iframe>
+</body>
+</html>
