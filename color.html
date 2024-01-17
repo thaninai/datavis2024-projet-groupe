@@ -23,12 +23,12 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script>
         $('document').ready(function(){
-            $.getJSON("villes_couleurs.json", function(data){
+            $.getJSON("fruitcsvjson.json", function(data){
 
                 $.each(data, function(d, i){
 
                     var vis = '<div class="pix"'+
-                    ' style="left:'+ i.hue * 3+'px; top:'+ i.bri * 4 +'px; background-color:'+ i.hex +'"><img src="'+i.image+'"</div>';
+                    'style="left:'+ i.rouge * 3+'px; top:'+ i.bleu * 4 +'px; background-color:rgb('+ i.rouge +','+ i.vert +','+ i.bleu +')"></div>';
 
                     $('#page').append(vis);
 
